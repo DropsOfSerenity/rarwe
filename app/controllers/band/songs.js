@@ -8,10 +8,6 @@ export default Ember.Controller.extend({
     return Ember.isEmpty(this.get('title'));
   }.property('title'),
 
-  noSongs: function() {
-    return this.get('model.length') === 0;
-  }.property('model.length'),
-
   canCreateSong: function() {
     return this.get('songCreationStarted') || this.get('model.length')
   }.property('songCreationStarted', 'model.length'),
@@ -21,5 +17,4 @@ export default Ember.Controller.extend({
       this.set('songCreationStarted', true)
     }
   }
-
 });
