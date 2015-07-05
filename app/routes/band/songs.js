@@ -31,7 +31,12 @@ export default Ember.Route.extend({
       var song = params.item;
       var rating = params.rating;
 
+      if (song.get('ratings') === rating) {
+        rating = 0;
+      }
+
       song.set('rating', rating);
+      song.save();
     }
   }
 });
